@@ -5,10 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.demo_di.repo.SearchRepo
 import com.example.demo_di.ultis.Result
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(val userRepo: SearchRepo) : ViewModel() {
+
+@HiltViewModel
+class MainViewModel @Inject constructor(val userRepo: SearchRepo) : ViewModel() {
     lateinit var data: Result
     var result = MutableLiveData<Result>()
     fun getSearchResult(name: String) {

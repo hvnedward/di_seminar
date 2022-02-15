@@ -6,6 +6,7 @@
 package com.example.demo_di.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class User(
     val login: String? = null,
@@ -82,7 +83,7 @@ data class User(
 
     @SerializedName("updated_at")
     val updatedAt: String? = null
-) {
+) :Serializable{
     class Builder {
         var login: String? = null
         var id: Long? = null
